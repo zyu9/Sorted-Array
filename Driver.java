@@ -10,15 +10,18 @@ import java.io.*;
  */
 public class Driver
 {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException{ 
+        char menuChoice; 
+        Scanner sc = new Scanner(System.in);
+      
         Sort sort = new Sort(); 
-        int r = (int) (Math.random() * 3);
+        int r = (int) (Math.random() * 4);
         
         int[] numbers; 
         String s = " ", p = " "; 
         
         //allow user to input the length of the array
-        Scanner sc = new Scanner(System.in);
+        
         System.out.print("Input the length of the array :"); 
         int num = sc.nextInt(); 
         numbers = new int[num]; 
@@ -43,11 +46,16 @@ public class Driver
         }else if(r == 2){
             sort.mergeSort(numbers, 0, numbers.length-1);
             p = "Merge Sort: "; 
+        }else if(r == 3){
+            sort.heapSort(numbers);
+            p = "Heap Sort: ";
         }
         
         //Print the sorted array
         for (int i = 0; i < num; ++i){
             System.out.print(p + numbers[i] + " \n"); 
         }
+        
+        System.out.println("\nGood-bye!");
     }
 }

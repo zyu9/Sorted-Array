@@ -10,6 +10,7 @@ public class Sort
 {
     /**
      * This is code for insertion sort algorithm. 
+     * 
      * @param - interger array, uses for sorting.
      */
     public void insertionSort(int arr[]){
@@ -27,6 +28,7 @@ public class Sort
     
     /**
      * This is code for bubble sort algorithm. 
+     * 
      * @param - interger array, uses for sorting. 
      */
     public void bubbleSort(int arr[]){
@@ -44,7 +46,8 @@ public class Sort
     }
     
     /**
-     * This is code for merge sort algorithm. 
+     * This is code for merge sort algorithm.
+     * 
      * @param - interger array, uses for sorting; 
      * @param - integer left, represents for the number at 0;
      * @param - integer mid, represents for the number (left+right)-1; 
@@ -100,6 +103,7 @@ public class Sort
     
     /**
      * This is code for merge sort algorithm. 
+     * 
      * @param - interger array, uses for sorting; 
      * @param - integer left, represents for the number at 0;
      * @param - integer right, represents for the number at arr.length-1;
@@ -113,6 +117,56 @@ public class Sort
             mergeSort(arr, mid+1, right);
             //merge the two sorted halves
             merge(arr, left, mid, right);
+        }
+    }
+    
+    /**
+     * This is code for max-heapify funtion in the heap sort algorithm.
+     * Use for setting the largest number as root of the heap. 
+     * 
+     * @param - interger array, uses for sorting; 
+     * @param - size of the heap;
+     * @param - root of the heap.
+     */
+    private void heapify(int arr[], int size, int root){
+        int largest = root;
+        int left = 2*root +1;
+        int right = 2*root +2;
+        
+        if(left < size && arr[left] > arr[largest]){
+            largest = left;
+        }
+        
+        if(right < size && arr[right] > arr[largest]){
+            largest = right;
+        }
+        
+        if(largest != root){
+            int temp = arr[root];
+            arr[root] = arr[largest];
+            arr[largest] = temp;
+            
+            heapify(arr, size, largest);
+        }
+    }
+    
+    /**
+     * This is code for heap sort algorithm.
+     * 
+     * @param - integer array, uses for sorting;
+     */
+    public void heapSort(int arr[]){
+        int n = arr.length; 
+        for(int i = n/2-1; i >= 0; i--){
+            heapify(arr, n, i);
+        }
+        
+        for(int i = n-1; i > 0; i--){
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            
+            heapify(arr, i, 0);
         }
     }
 }
