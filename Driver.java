@@ -15,7 +15,7 @@ public class Driver
         Scanner sc = new Scanner(System.in);
       
         Sort sort = new Sort(); 
-        int r = (int) (Math.random() * 4);
+        int r = (int) (Math.random() * 5);
         
         int[] numbers; 
         String s = " ", p = " "; 
@@ -49,6 +49,9 @@ public class Driver
         }else if(r == 3){
             sort.heapSort(numbers);
             p = "Heap Sort: ";
+        }else if(r == 4){
+            sort.quickSort(numbers, 0, numbers.length-1);
+            p = "Quick Sort: "; 
         }
         
         //Print the sorted array

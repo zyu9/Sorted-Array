@@ -196,6 +196,13 @@ public class Sort
         return i+1; 
     }
     
+    /**
+     * This is code for the quick sort algorithm.
+     * 
+     * @param - integer array, uses for sorting;
+     * @param - integer low, the lowest in the array;
+     * @param - integer high, the highest in the array;
+     */
     public void quickSort(int arr[], int low, int high){
         if(low < high){
           int pi = partition(arr, low, high);
